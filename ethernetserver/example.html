@@ -1,0 +1,25 @@
+<!-- This is the html page that makes the request. Run me in Chrome, Firefox or Edge.
+Safari does not support fetch, so it won't work! -->
+
+<label> IP Address:
+	<input id="ip" type="text" value="http://169.254.100.100">
+</label>
+&nbsp;
+<button onclick="submit()"> Submit! </button>
+
+<div id="output"> </div>
+
+<script>
+	let ip = document.getElementById('ip');
+	let output = document.getElementById('output');
+
+	submit = function() {
+		fetch(ip.value)
+		.then(response => response.text())
+		.then(text => output.innerHTML = `${new Date().toISOString()}: ${text}`)
+		.catch(err => output.innerHTML = "Error: " + err);
+
+		// jquery equivalent without fetch + es6 stuff:
+		// $.ajax({url: ip.value, type: 'GET', success: function(data) { $('#output').text(data); });
+	};
+</script>
