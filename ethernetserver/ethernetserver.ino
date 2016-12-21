@@ -44,7 +44,7 @@ void loop()
           client.println("Content-Type: text/html");
           client.println("Access-Control-Allow-Origin: *");
           client.println("");
-          client.println("<html> <style> div { color: blue; } </style> Here is your response </html>");
+          client.println("<html> <style> div { color: blue; } </style> <div> Here is your response </div> </html>");
           break;
         }
         if (c == '\n') {
