@@ -37,8 +37,8 @@ Select the correct board and port (Tools > Board, Tools > Port). Upload it to yo
 Open a browser and visit the page corresponding to your ip address (e.g. I would go to 169.254.100.100)
 ##### Option 2: Use the html client
 Open the page (`example.html`), change the IP address in the text field, and click on the "Submit" button
-##### Option 3: Use the python client
-Run the python client however you want
+##### Option 3: Use the python clienst
+Run the python client (`client.py`) however you want
 
 You should either have a page with blue text that says "Here is your response" OR receive a string that says
 `<html> <style> div { color: blue; } </style> <div> Here is your response </div> </html>`
