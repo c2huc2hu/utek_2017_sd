@@ -1,4 +1,7 @@
-import socketserver
+try:
+    import socketserver
+except ImportError:
+    import SocketServer as socketserver
 
 class MyTCPHandler(socketserver.BaseRequestHandler):
     """
@@ -14,7 +17,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         self.data = self.request.recv(1024).strip()
         print("{} wrote:".format(self.client_address[0]))
         print(self.data)
-        self.request.sendall(bytes('\r\n'.join(['HTTP/1.1 200 OK', 'Content-type: text/html', '', 'hi', '', '']), 'utf-8'))
+        self.request.sendall(bytes('\r\n'.join(['HTTP/1.1 200 OK', 'Content-type: text/html', '', 'this is being served from my python server', '', '']), 'utf-8'))
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", 9999

@@ -1,5 +1,3 @@
-// to make this code work, ensure IP address is set correctly (use ipconfig, ensure the IPv4 matches the ip here)
-// Alternatively, you can set a static IP for the device (you may need to reset the connection)
 // then go to that ip address in a browser. You can also make AJAX requests to that IP address, GET /
 
 #include <SPI.h>
@@ -8,7 +6,7 @@
 // Enter a MAC address and IP address for your controuller below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0x00, 0xAA, 0xBB, 0xCC, 0xDA, 0x02 }; // this is arbitrary
-IPAddress ip(169, 254, 100, 100); //<<< ENTER YOUR IP ADDRESS HERE!!!
+IPAddress ip(169, 254, 100, 100); // <<< ENTER A UNIQUE IP ADDRESS HERE!!!
 
 // Initialize the Ethernet server library
 // with the IP address and port you want to use

@@ -6,7 +6,7 @@ net.createServer(function (connection) {
   	connection.write("HTTP/1.1 200 OK\r\n");
     connection.write("Content-type: text/html \r\n");
     connection.write("\r\n");
-    connection.write("hi\r\n\r\n")
+    connection.write("this is being served from my node server\r\n\r\n")
     console.log('data: ' + data);
   });
 }).listen(4000);

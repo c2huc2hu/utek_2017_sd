@@ -2,43 +2,12 @@
 Example code for getting your ethernet shields working. We will be using the Arduino as a server and using a client to make queries to it.
 
 ### Summary
-1. Attach the shield to your arduino and computer.
-2. Find the IP address of your shield OR set a static IP
-3. Upload the arduino code to your board. Make sure you change the IP Address
-4. Visit the page in the browser OR use one of the clients
+1. Attach the shield to your arduino and computer
+2. Run the server on the Arduino. In rare cases, you may need to change the IP address of your server. However, make sure that this is an unused IP address. Any local address, e.g. one that begins with 169.254 should be fine.
+3. Make a request from your client to the Arduino
 
-### Step 1: Attach the shield to your arduino and computer.
-Attach your shield to your Arduino. Plug the ethernet cable into the shield and your computer. Plug the Arduino cable into the board and your computer.
+Some other things to try when debugging:
+- Force refresh (ctrl + shift + R in Chrome) will clear any cached page.
+- Opening the serial monitor on the Arduino has reportedly made it work, but I cannot reproduce it.
 
-### Step 2: Find the IP address of your shield OR set a static IP
-##### Option 1: Finding the IP Address of your shield
-Open command prompt, enter ipconfig (Windows) or ifconfig (Linux). Write down this IPv4 address
-
-![ipconfig](ipconfig.png)
-
-##### Option 2: Setting a static IP
-Control Panel > Network and Internet > Network and Sharing Center > Ethernet
-
-![ethernet panel](ethernet.png)
-
-Properties > Internet Protocol Version 4 > Use the following IP addresses
-Set the address to something beginning with 169.254, e.g. 169.254.12.34 and subnet mask to 255.255
-
-![ipv4](ipv4.png)
-
-*Note: when uploading code again, you may need to reconfirm this ip. Open the dialog box in the picture above and click OK again*
-
-### Step 3: Upload the arduino code to your board
-Open the `.ino` file in the Arduino IDE. Change the IP address at this line: `IPAddress ip(169,254,100,100); //<<< ENTER YOUR IP ADDRESS HERE!!! `
-Select the correct board and port (Tools > Board, Tools > Port). Upload it to your Arduino (ctrl + U).
-
-### Step 4: Visit the page in the browser OR use one of the clients
-##### Option 1: Use a browser
-Open a browser and visit the page corresponding to your Arduino's ip address (e.g. I would go to 169.254.100.100)
-##### Option 2: Use one of the example clients
-(open `example.html` in a browser or `python client.py`)
-##### Option 3: Any other programming language that supports http requests
-Make a GET request to / at your Arduino's IP Address, 169.254.100.100:80
-
-Regardless of which option you use, you should either have a page with blue text that says "Here is your response" OR receive a string that says
-`<html> <style> div { color: blue; } </style> <div> Here is your response </div> </html>`
+I don't believe that you need to mess around with static ip addresses at all, you can just set it on the Arduino
